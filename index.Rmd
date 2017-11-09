@@ -1,5 +1,34 @@
 ---
-title: "index"
+title: "Tabooness Survey Results"
 output: html_document
 ---
-# Tabooness Survey Results
+```{r, echo = F, message = F}
+library(knitr)
+source('analysis.R')
+
+``` 
+### Average Tabooness for All 21 Sentences
+
+```{r, echo = F, message = F}
+kable(words.avg, 'markdown')
+``` 
+### Average Tabooness when used in positive contexts
+
+```{r, echo = F, message = F}
+kable(pos.only, 'markdown')
+``` 
+Average mean overall: `r pos.mean`
+
+### Average Tabooness when used in negative contexts
+
+```{r, echo = F, message = F}
+kable(neg.only, 'markdown')
+``` 
+Average mean overall: `r neg.mean`
+
+### Average Tabooness when used in denotative contexts
+
+```{r, echo = F, message = F}
+kable(den.only, 'markdown')
+``` 
+Average mean overall: `r den.mean`
