@@ -14,12 +14,12 @@ names <- c(demo.titles, words.titles)
 colnames(results) <- names
 
 words.only <- data.frame(t(data.frame(results[, 13:33])))
-words.only$means <- rowMeans(words.only)
+words.only$mean <- rowMeans(words.only)
 words.avg <- words.only %>% select(means)
 
 GetMeansDF <- function(df, pattern) {
   df <-data.frame(t(data.frame(df[, grep(pattern, colnames(df))])))
-  df$means <- rowMeans(df)
+  df$mean <- rowMeans(df)
   return (select(df, means))
 }
 
@@ -27,7 +27,7 @@ pos.only <- GetMeansDF(results,'Pos')
 neg.only <- GetMeansDF(results, 'Neg')
 den.only <- GetMeansDF(results, 'Den')
 
-pos.mean <- mean(pos.only$means)
-neg.mean <- mean(neg.only$means)
-den.mean <- mean(den.only$means)
+pos.mean <- mean(pos.only$mean)
+neg.mean <- mean(neg.only$mean)
+den.mean <- mean(den.only$mean)
 
