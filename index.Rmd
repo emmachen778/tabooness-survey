@@ -15,6 +15,8 @@ kable(words.avg, 'markdown')
 ### Average Tabooness when used in positive contexts
 
 ```{r, echo = F, message = F}
+pos.only <- GetMeansDF(results,'Pos')
+pos.mean <- mean(pos.only$mean)
 kable(pos.only, 'markdown')
 ``` 
 Average mean overall: `r pos.mean`
@@ -22,6 +24,8 @@ Average mean overall: `r pos.mean`
 ### Average Tabooness when used in negative contexts
 
 ```{r, echo = F, message = F}
+neg.only <- GetMeansDF(results,'Neg')
+neg.mean <- mean(neg.only$mean)
 kable(neg.only, 'markdown')
 ``` 
 Average mean overall: `r neg.mean`
@@ -29,6 +33,66 @@ Average mean overall: `r neg.mean`
 ### Average Tabooness when used in denotative contexts
 
 ```{r, echo = F, message = F}
+den.only <- GetMeansDF(results,'Den')
+den.mean <- mean(den.only$mean)
 kable(den.only, 'markdown')
 ``` 
 Average mean overall: `r den.mean`
+
+### Average Tabooness for Specific words
+
+#### Fuck
+```{r, echo = F, message = F}
+fuck.only <- GetMeansDF(results,'Fuck')
+fuck.mean <- mean(fuck.only$mean)
+kable(fuck.only, 'markdown')
+``` 
+Average mean overall: `r fuck.mean`
+
+#### Shit
+```{r, echo = F, message = F}
+shit.only <- GetMeansDF(results,'Shit')
+shit.mean <- mean(shit.only$mean)
+kable(shit.only, 'markdown')
+``` 
+Average mean overall: `r shit.mean `
+
+#### Bitch
+```{r, echo = F, message = F}
+bitch.only <- GetMeansDF(results,'Bitch')
+bitch.mean <- mean(bitch.only$mean)
+kable(bitch.only, 'markdown')
+``` 
+Average mean overall: `r bitch.mean`
+
+#### Damn
+```{r, echo = F, message = F}
+damn.only <- GetMeansDF(results,'Damn')
+damn.mean <- mean(damn.only$mean)
+kable(damn.only, 'markdown')
+``` 
+Average mean overall: `r damn.mean`
+
+#### Hell
+```{r, echo = F, message = F}
+hell.only <- GetMeansDF(results,'Hell')
+hell.mean <- mean(fuck.only$mean)
+kable(hell.only, 'markdown')
+``` 
+Average mean overall: `r hell.mean`
+
+#### Gay
+```{r, echo = F, message = F}
+gay.only <- GetMeansDF(results,'Gay')
+gay.mean <- mean(gay.only$mean)
+kable(gay.only, 'markdown')
+``` 
+Average mean overall: `r gay.mean`
+
+#### Pussy
+```{r, echo = F, message = F}
+pussy.only <- GetMeansDF(results,'Pussy')
+pussy.mean <- mean(pussy.only$mean)
+kable(pussy.only, 'markdown')
+``` 
+Average mean overall: `r pussy.mean`
