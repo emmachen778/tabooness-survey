@@ -8,6 +8,8 @@ source('analysis.R')
 source('plots.R')
 
 ``` 
+This report contains the data collected from a tabooness survey, which measured the perceived tabooness of various terms in different contexts. The data is first summarised for each individual sentence, followed by tables and graphs of summaries of the data by word and by context. 
+
 ### Average Tabooness for All 21 Sentences
 
 ```{r, echo = F, message = F}
@@ -34,11 +36,18 @@ kable(edu.avg.word, 'markdown')
 edu.word.plot
 ```
 
+#### Parent Education
+```{r, echo = F, message = F}
+kable(ped.avg.word, 'markdown')
+ped.word.plot
+```
+
 #### English as Primary Language
 ```{r, echo = F, message = F}
 kable(eng.avg.word, 'markdown')
 eng.word.plot
 ```
+
 
 ### Average Tabooness when used in Different contexts
 #### Gender
@@ -56,4 +65,8 @@ kable(edu.avg.cont, 'markdown')
 #### English as Primary Language
 ```{r, echo = F, message = F}
 kable(eng.avg.cont, 'markdown')
+```
+#### Parent's Education
+```{r, echo = F, message = F}
+kable(ped.avg.cont, 'markdown')
 ```
