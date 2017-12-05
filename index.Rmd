@@ -30,6 +30,11 @@ kable(sexuality.avg.word, 'markdown')
 sex.word.plot
 ```
 
+##### "Gay"
+```{r, echo = F, message = F}
+kable(gay.only, 'markdown')
+```
+
 #### Education
 ```{r, echo = F, message = F}
 kable(edu.avg.word, 'markdown')

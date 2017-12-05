@@ -1,6 +1,7 @@
 # Tabooness Survey
 # Analysis
 library(dplyr)
+library(tidyr)
 
 results <- read.csv("tabooness-survey.csv")
 
@@ -70,6 +71,9 @@ sexuality.avg.word <- sexuality.avg.word[match(target.word, sexuality.avg.word$W
 sexuality.avg.cont <- data.frame(Word = words, Context = contexts, Straight = straight.avg, LGBTQIA = lgbt.avg) %>%
   group_by(Context) %>% summarise(Heterosexual = mean(Straight), LGBTQIA = mean(LGBTQIA))
 sexuality.avg.cont <- sexuality.avg.cont[match(target.cont, sexuality.avg.cont$Context),]
+
+gay.only <- data.frame(Word = words, Context = contexts, Straight = straight.avg, LGBTQIA = lgbt.avg) %>% 
+  filter(Word == 'Gay') %>% select(Context, Straight, LGBTQIA)
 
 ################ Education Data #####################
 
