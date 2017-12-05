@@ -110,7 +110,7 @@ eng.avg.cont <- eng.avg.cont[match(target.cont, eng.avg.cont$Context),]
 ################ Parent's Education ##################
 ped.results <- filter(results, EduFather != 'I do not know' & EduMother != 'I do not know')
 
-above.hs <- filter(ped.results, (EduFather != 'Graduated high school' &  EduFather != 'Did not complete high school') |
+above.hs <- filter(ped.results, (EduFather != 'Graduated high school' &  EduFather != 'Did not complete high school') &
                    (EduMother != 'Graduated high school' & EduMother != 'Did not complete high school')) %>% GetAvgVector()
 above.hs <- c(above.hs, mean(above.hs))
 below.hs <- filter(ped.results, (EduFather == 'Graduated high school' |  EduFather == 'Did not complete high school') &

@@ -28,8 +28,8 @@ eng.word.plot <-plot_ly(data = eng.avg.word[1:7,], type = "scatter", mode = "lin
          yaxis = list(title = "Tabooness"),
          title = 'Mean Tabooness of Words by Primary English (English or not)')
 
-ped.word.plot <- plot_ly(data = ped.avg.word[1:7,], type = "scatter", mode = "lines+markers", x = ~Word, y = ~Above.HS, name = "Either Parent's Edu. Level > HS (77)") %>%
-  add_trace(y = ~Below.HS, name = "Parent's Edu. Level <= HS (11)", mode = 'lines+markers') %>%
+ped.word.plot <- plot_ly(data = ped.avg.word[1:7,], type = "scatter", mode = "lines+markers", x = ~Word, y = ~Above.HS, name = "Both Parents' Edu. Level > HS (65)") %>%
+  add_trace(y = ~Below.HS, name = "Both Parents' Edu. Level <= HS (11)", mode = 'lines+markers') %>%
   layout(xaxis = list(title = "Word"), 
          yaxis = list(title = "Tabooness"),
          title = "Mean Tabooness of Words by Parent's Education (More than High School or Not)")
