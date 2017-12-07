@@ -67,11 +67,11 @@ kable(sexuality.avg.cont, 'markdown')
 ```{r, echo = F, message = F}
 kable(edu.avg.cont, 'markdown')
 ```
-#### English as Primary Language
-```{r, echo = F, message = F}
-kable(eng.avg.cont, 'markdown')
-```
 #### Parent's Education
 ```{r, echo = F, message = F}
 kable(ped.avg.cont, 'markdown')
+```
+#### English as Primary Language
+```{r, echo = F, message = F}
+kable(eng.avg.cont, 'markdown')
 ```
