@@ -53,6 +53,11 @@ kable(eng.avg.word, 'markdown')
 eng.word.plot
 ```
 
+#### Amount of Siblings
+```{r, echo = F, message = F}
+kable(sib.avg.word, 'markdown')
+sib.word.plot
+```
 
 ### Average Tabooness when used in Different contexts
 #### Gender
@@ -74,4 +79,8 @@ kable(ped.avg.cont, 'markdown')
 #### English as Primary Language
 ```{r, echo = F, message = F}
 kable(eng.avg.cont, 'markdown')
+```
+#### Amount of Siblings
+```{r, echo = F, message = F}
+kable(sib.avg.cont, 'markdown')
 ```

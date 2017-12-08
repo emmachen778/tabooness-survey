@@ -33,3 +33,11 @@ ped.word.plot <- plot_ly(data = ped.avg.word[1:7,], type = "scatter", mode = "li
   layout(xaxis = list(title = "Word"), 
          yaxis = list(title = "Tabooness"),
          title = "Mean Tabooness of Words by Parent's Education (More than High School or Not)")
+
+sib.word.plot <- plot_ly(data = sib.avg.word[1:7,], type = "scatter", mode = "lines+markers", x = ~Word, y = ~No.Siblings, name = "No Siblings") %>%
+  add_trace(y = ~Only.Younger, name = "Only Younger Siblings", mode = 'lines+markers') %>%
+  add_trace(y = ~Only.Older, name = "Only Older Siblings", mode = 'lines+markers') %>%
+  add_trace(y = ~Both, name = "Both Older and Younger Siblings", mode = 'lines+markers') %>%
+  layout(xaxis = list(title = "Word"), 
+         yaxis = list(title = "Tabooness"),
+         title = "Mean Tabooness of Words by Siblings")

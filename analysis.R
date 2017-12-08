@@ -108,10 +108,11 @@ eng.avg.cont <- data.frame(Word = words, Context = contexts, English = eng.avg, 
 eng.avg.cont <- eng.avg.cont[match(target.cont, eng.avg.cont$Context),]
 
 ################ Parent's Education ##################
+
 ped.results <- filter(results, EduFather != 'I do not know' & EduMother != 'I do not know')
 
 above.hs <- filter(ped.results, (EduFather != 'Graduated high school' &  EduFather != 'Did not complete high school') &
-                   (EduMother != 'Graduated high school' & EduMother != 'Did not complete high school')) %>% GetAvgVector()
+                     (EduMother != 'Graduated high school' & EduMother != 'Did not complete high school')) %>% GetAvgVector()
 above.hs <- c(above.hs, mean(above.hs))
 below.hs <- filter(ped.results, (EduFather == 'Graduated high school' |  EduFather == 'Did not complete high school') &
                      (EduMother == 'Graduated high school' | EduMother == 'Did not complete high school')) %>% GetAvgVector()
@@ -124,3 +125,22 @@ ped.avg.word <- ped.avg.word[match(target.word, ped.avg.word$Word),]
 ped.avg.cont <- data.frame(Word = words, Context = contexts, Above.HS = above.hs, Below.HS = below.hs) %>%
   group_by(Context) %>% summarise(Above.HS = mean(Above.HS), Below.HS = mean(Below.HS))
 ped.avg.cont <- ped.avg.cont[match(target.cont, ped.avg.cont$Context),]
+
+############## Siblings ########################333
+
+no.sibs <- filter(results, YoungerSib == 'None'& OlderSib == 'None') %>% GetAvgVector()
+no.sibs <- c(no.sibs, mean(no.sibs))
+only.young <- filter(results, YoungerSib != 'None' & OlderSib == 'None') %>% GetAvgVector()
+only.young <- c(only.young, mean(only.young))
+only.older <- filter(results, YoungerSib == 'None' & OlderSib != 'None') %>% GetAvgVector()
+only.older <- c(only.older, mean(only.older))
+both.sibs <- filter(results, YoungerSib != 'None' & OlderSib != 'None') %>% GetAvgVector()
+both.sibs <- c(both.sibs, mean(both.sibs))
+
+sib.avg.word <- data.frame(Word = words, Context = contexts, None = no.sibs, Young = only.young, Old = only.older, Both = both.sibs) %>%
+  group_by(Word) %>% summarise(No.Siblings = mean(None), Only.Younger = mean(Young), Only.Older = mean(Old), Both = mean(Both))
+sib.avg.word <- sib.avg.word[match(target.word, sib.avg.word$Word),]
+
+sib.avg.cont <- data.frame(Word = words, Context = contexts, None = no.sibs, Young = only.young, Old = only.older, Both = both.sibs) %>%
+  group_by(Context) %>% summarise(No.Siblings = mean(None), Only.Younger = mean(Young), Only.Older = mean(Old), Both = mean(Both))
+sib.avg.cont <- sib.avg.cont[match(target.cont, sib.avg.cont$Context),]
